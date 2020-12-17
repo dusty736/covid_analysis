@@ -1,8 +1,11 @@
 # Covid Analysis
 
-Author: Dustin Burnham
+Main Contributer: Dustin Burnham
+
 Email: dusty736@student.ubc.ca
+
 LinkedIn: https://www.linkedin.com/in/dustinburnham/
+
 
 ## Statement of Purpose
 Coronavirus, or SARS-CoV-2, has changed life for everyone in 2020.  As a masters student studying Data Science at UBC, the goal of this project is leverage the skills that I have learned to investigate the following questions:
