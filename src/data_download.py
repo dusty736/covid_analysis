@@ -54,7 +54,7 @@ def main(start_date, end_date, out_dir):
                                     start_date, end_date,
                                     "county")
 
-            file_name = out_dir + "/" + signal + ".csv"
+            file_name = "../" + out_dir + "/" + signal + ".csv"
 
             data.to_csv(file_name)
 
