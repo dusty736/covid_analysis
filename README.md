@@ -1,6 +1,8 @@
-# Covid Analysis
-
-Main Contributer: Dustin Burnham
+---
+title: "Covid Analysis"
+author: "Dustin Burnham"
+output: html_document
+---
 
 Email: dusty736@student.ubc.ca
 
@@ -32,3 +34,11 @@ https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Dat
 
 Carnegie Mellon Delphi Research Group COVIDcast API
 https://delphi.cmu.edu/
+
+## License
+
+dusty736/covid_analysis is licensed under the MIT License. If re-using/re-mixing, please provide attribution and link to this webpage. 
+
+More information regarding license can be found [here](https://github.com/UBC-MDS/covid_analysis/blob/main/LICENSE).
+
+# References
