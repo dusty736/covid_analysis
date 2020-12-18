@@ -29,19 +29,23 @@ def main(start_date, end_date, out_dir):
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d").date()
 
     data_sources = {"chng" : ["smoothed_adj_outpatient_cli"],
-                    "indicator-combination" : ["nmf_day_doc_fbc_fbs_ght"],
                     "fb-survey": ["smoothed_cli",
                                   "smoothed_hh_cmnty_cli",
                                   "smoothed_wearing_mask"],
                     "hospital-admissions" : ["smoothed_adj_covid19_from_claims"],
-                    "indicator-combination" : ["confirmed_7dav_incidence_num",
+                    "indicator-combination" : ["nmf_day_doc_fbc_fbs_ght",
+                                               "confirmed_7dav_incidence_num",
                                                "confirmed_7dav_incidence_prop",
                                                "confirmed_cumulative_num",
                                                "confirmed_cumulative_prop",
                                                "confirmed_incidence_num",
                                                "confirmed_incidence_prop",
                                                "deaths_7dav_incidence_num",
-                                               "deaths_7dav_incidence_prop"],
+                                               "deaths_7dav_incidence_prop",
+                                               "deaths_cumulative_num",
+                                               "deaths_cumulative_prop",
+                                               "deaths_incidence_num",
+                                               "deaths_incidence_prop"],
                     "quidel" : ["covid_ag_smoothed_pct_positive"],
                     "safegraph" : ["bars_visit_prop",
                                    "full_time_work_prop_7dav",
@@ -50,13 +54,17 @@ def main(start_date, end_date, out_dir):
 
     for source in data_sources.keys():
         for signal in data_sources[source]:
-            data = covidcast.signal(source, signal,
-                                    start_date, end_date,
-                                    "county")
 
-            file_name = "../" + out_dir + "/" + signal + ".csv"
+            file_name = out_dir + "/" + signal + ".csv"
 
-            data.to_csv(file_name)
+            if os.path.isfile(file_name):
+                continue
+            else:
+                data = covidcast.signal(source, signal,
+                                        start_date, end_date,
+                                        "county")
+
+                data.to_csv(file_name)
 
 def test():
     """Tests file structure and input formats for file parameters
